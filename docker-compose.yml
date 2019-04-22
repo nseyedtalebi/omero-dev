@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  omero-web:
+    container_name: omero-web-dev
+    build:
+      context: ./omero-web-dev
+    image: omero-web-dev
+    ports:
+      - 4080:4080
+    environment:
+      - OMEROHOST=${OMEROHOST}
+    volumes:
+      - type: volume
+        source: omero-web-dev-var
+        target: /opt/omero/web/OMERO.web/var
+      - type: bind
+        source: ${OMERO_WEB_DIR-./web-addons}
+        target: /addons
+    entrypoint: /usr/bin/bash
+
+volumes:
+  omero-web-dev-var:
