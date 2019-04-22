@@ -3,4 +3,6 @@ USER root
 RUN mkdir /addons
 RUN pip install --upgrade pip
 RUN pip install Django
-USER omero
+RUN pip install ipython
+USER omero-server
+ENTRYPOINT /usr/bin/bash
