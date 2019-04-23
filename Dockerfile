@@ -5,4 +5,5 @@ RUN pip install --upgrade pip
 RUN pip install Django
 RUN pip install ipython
 USER omero-server
+EXPOSE 8000
 ENTRYPOINT /usr/bin/bash
